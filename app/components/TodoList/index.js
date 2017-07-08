@@ -47,7 +47,8 @@ export default class Home extends Component {
 			<View>
 				<ListView
 					dataSource={this.state.taskDataSource}
-					renderRow={(d) => <Text key={d.id}>{d.title}</Text> }
+					renderRow={(d) => <Text key={d.id} style={styles.item}>{d.title}</Text> }
+					renderSeparator={(_,id) => <View key={id} style={styles.separator} /> }
 					/>
 			</View>
 			)
@@ -59,20 +60,13 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+	item: {
+		fontSize: 18,
+		height: 44,
+		padding: 10,
+	},
+	separator: {
+		backgroundColor: '#999',
+		height: StyleSheet.hairlineWidth,
+	},
 });
