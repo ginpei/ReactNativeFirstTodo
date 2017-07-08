@@ -28,6 +28,13 @@ export default class Home extends Component {
 				},
 			]
 		}
+		for (const i = 0; i < 100; i++) {
+			this.state.tasks.push({
+				id: 100 + i,
+				title: `Task ${i}`,
+				detail: '',
+			})
+		}
 
 		const ds = new ListView.DataSource({ 
 			rowHasChanged: (d1, d2) => d1.title !== d2.title || d1.detail !== d2.detail
